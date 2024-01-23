@@ -1,0 +1,18 @@
+clc
+clear all
+close all
+
+n = 3;
+
+while n > 0
+    a = rand(1, 9);
+    AA = round(a);
+    bb = sum(AA);
+    
+    if bb == 5
+        if n ~= 0
+            disp(AA);
+            n = n - 1;
+        end
+    end
+end
