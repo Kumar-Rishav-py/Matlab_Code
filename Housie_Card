@@ -1,0 +1,24 @@
+ranges = {[1 10], [11 20], [21 30], [31 40], [41 50], [51 60], [61 70], [71 80], [81 90]};
+
+numTickets = 5;
+
+for ticketIndex = 1:numTickets
+    ticket = zeros(3, 9);
+
+    for i = 1:9
+        colRange = ranges{i};
+        availableNumbers = colRange(1):colRange(2);
+
+        numBlanks = randi([1, 2]);
+
+        nonBlankNumbers = randsample(availableNumbers, 3 - numBlanks);
+        
+        ticket(:, i) = sort([nonBlankNumbers zeros(1, numBlanks)]);
+
+        ticket(:, i) = ticket(randperm(3), i);
+    end
+
+    disp(['Ticket ' num2str(ticketIndex) ':']);
+    disp(ticket);
+    disp(' ');
+end
